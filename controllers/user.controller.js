@@ -1,5 +1,14 @@
+import { db } from '../db.js';
+
 class UserController {
-  async createUser(req, res) {}
+  async createUser(req, res) {
+    const { name, lastname } = req.body;
+    const newUser = await db.query(
+      'INSERT INTO users (name, lastname) values ($1, $2) RETURNING *',
+      [name, lastname]
+    );
+    res.json(newUser);
+  }
 
   async getUsers(req, res) {}
 
