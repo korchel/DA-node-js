@@ -1,11 +1,11 @@
 import express from "express";
+import { userRouter } from "./routes/user.routes";
 
 const PORT = 8080;
 
 const app = express();
+app.use(express.json());
 
-app.get("/", (req, res) => {
-  res.send("hello");
-});
+app.use("/api", userRouter);
 
 app.listen(PORT, console.log("PORT" + PORT));
