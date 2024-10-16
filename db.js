@@ -1,9 +1,14 @@
-import pg from 'pg';
+import pg from "pg";
+import dotenv from "dotenv";
+
+dotenv.config({
+  path: ".development.env",
+});
 
 export const db = new pg.Pool({
-  user: 'postgres',
-  password: 'password',
-  host: 'localhost',
-  port: 5432,
-  database: 'da_postgres',
+  user: process.env.USER,
+  password: process.env.PASSWORD,
+  host: process.env.HOST,
+  port: process.env.PORT,
+  database: process.env.DATABASE,
 });
