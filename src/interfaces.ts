@@ -32,13 +32,13 @@ export interface IdParam {
   /**
    * id of current entity
    */
-  id: string,
+  id: string;
 }
 
 export interface IDocumentInputModel {
   title: string;
   number: number;
-  author: IUser;
+  author: string; // IUser
   type: IDocumentType;
   content: string;
   public_document: boolean;
@@ -49,7 +49,7 @@ export interface IDocumentViewModel {
   id: number;
   title: string;
   number: number;
-  author: string;  // IUser
+  author: string; // IUser
   type: IDocumentType;
   content: string;
   creationDate?: string;
@@ -57,7 +57,6 @@ export interface IDocumentViewModel {
   public_document: boolean;
   available_for: number[];
 }
-
 
 export interface IDocument {
   id: number;
